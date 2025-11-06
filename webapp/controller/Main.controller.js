@@ -239,7 +239,7 @@ sap.ui.define([
 
                 oBinding.attachEventOnce("dataReceived", function () {
                     var filters = [
-                        new Filter("IvMatnr", FilterOperator.Contains, sValue)
+                        new Filter("IvMatnr", FilterOperator.EQ, sValue)
                     ];
                     oBinding.filter(filters);
                     sap.ui.core.BusyIndicator.hide();
