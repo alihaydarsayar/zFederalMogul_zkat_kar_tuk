@@ -199,7 +199,7 @@
                                 text="{i18n>quantityLabel}"
                                 required="true"
                             />
-                            <Input
+                            <!-- <Input
                                 id="quantityInput"
                                 value="{
                                     path: 'mainView>/formData/IvMiktar',
@@ -207,6 +207,15 @@
                                     formatOptions: { minFractionDigits: 0, maxFractionDigits: 3, groupingEnabled: false },
                                     constraints: { minimum: 0.001 }
                                 }"
+                                type="Number"
+                                required="true"
+                                change="_clearValidationState"
+                                valueState="{mainView>/validation/miktarState}"
+                                valueStateText="{mainView>/validation/miktarStateText}"
+                            /> -->
+                            <Input
+                                id="quantityInput"
+                                value="{mainView>/formData/IvMiktar}"
                                 type="Number"
                                 required="true"
                                 change="_clearValidationState"
