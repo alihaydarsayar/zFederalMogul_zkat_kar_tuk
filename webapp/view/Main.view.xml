@@ -152,7 +152,7 @@
                                 value="{mainView>/formData/IvMalzeme}"
                                 required="true"
                     
-                                submit="onMaterialSearch"
+                           
                                 showSuggestion="true"
                                 showValueHelp="true"
                                 valueHelpRequest="onMaterialValueHelp"
