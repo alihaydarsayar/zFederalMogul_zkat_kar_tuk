@@ -556,6 +556,12 @@ sap.ui.define([
                     miktarState: "None", miktarStateText: "",
                     bantState: "None", bantStateText: ""
                 });
+            },
+            onMiktarLiveChange: function (oEvent) {
+                var oInput = oEvent.getSource();
+                var sValue = oInput.getValue();
+                var sCleanValue = sValue.replace(/[^0-9,]/g, ''); // Sadece rakamlar ve virgül
+                oInput.setValue(sCleanValue);
             }
         });
     });

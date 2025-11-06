@@ -216,11 +216,11 @@
                             <Input
                                 id="quantityInput"
                                 value="{path:'mainView>/formData/IvMiktar', type: 'com.golive.federalmogul.zkatkartuk.model.types.Quantity'}"
-                                type="Number"
                                 required="true"
                                 change="_clearValidationState"
                                 valueState="{mainView>/validation/miktarState}"
                                 valueStateText="{mainView>/validation/miktarStateText}"
+                                liveChange="onMiktarLiveChange"
                             />
 
                             <Label

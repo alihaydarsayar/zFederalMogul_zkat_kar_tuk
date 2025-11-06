@@ -25,13 +25,19 @@ sap.ui.define([
          * @returns {string} Formatlanmış string.
          */
         formatValue: function (oValue) {
-            if (!oValue || oValue === "0") {
+            // if (!oValue || oValue === "0") {
+            //     return "0,000";
+            // }
+
+            if (!oValue || oValue === "") {
+                return "";
+            }
+            if (oValue === "0") {
                 return "0,000";
             }
-
             // Gelen değeri string'e çevirerek işlem yapıyoruz. Bu, sondaki sıfırların kaybolmasını engeller.
             let valueStr = String(oValue);
-            
+
             // Eğer değerde ondalık ayıracı yoksa, .000 ekle.
             if (valueStr.indexOf('.') === -1) {
                 valueStr += ".000";
@@ -83,10 +89,10 @@ sap.ui.define([
             if (!validNumberRegex.test(value)) {
                 let cleanValue = "";
                 let foundDecimalPoint = false;
-                
+
                 for (let i = 0; i < value.length; i++) {
                     const char = value[i];
-                    
+
                     if (/[0-9]/.test(char)) {
                         cleanValue += char;
                     } else if (char === '.' && !foundDecimalPoint) { // Sadece ilk noktaya izin ver
@@ -101,16 +107,16 @@ sap.ui.define([
             if (isNaN(parsedValue)) {
                 return "0.000";
             }
-            
+
             // Adım 3: Basamak sayısı kısıtlamalarını uygula.
             const parts = value.split('.');
             const integerPart = parts[0];
             const decimalPart = parts[1] || "";
-            
+
             const maxIntegerDigits = this.MAX_TOTAL_DIGITS - this.MAX_DECIMAL_PLACES;
             const trimmedIntegerPart = integerPart.slice(0, maxIntegerDigits);
             let trimmedDecimalPart = decimalPart.slice(0, this.MAX_DECIMAL_PLACES);
-            
+
             // Adım 4: Model'e her zaman 3 ondalık basamakla gitmesini sağla.
             if (trimmedDecimalPart.length < 3) {
                 trimmedDecimalPart = trimmedDecimalPart.padEnd(3, '0');
@@ -136,7 +142,7 @@ sap.ui.define([
             if (parseFloat(strValue) < 0) {
                 throw new ValidateException("Miktar sıfırdan küçük olamaz.");
             }
-            
+
             const parts = strValue.split('.');
             const integerPart = parts[0];
             const maxIntegerDigits = this.MAX_TOTAL_DIGITS - this.MAX_DECIMAL_PLACES;
