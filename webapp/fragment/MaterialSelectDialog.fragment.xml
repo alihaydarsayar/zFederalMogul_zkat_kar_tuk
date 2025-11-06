@@ -1,0 +1,22 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <SelectDialog
+        id="materialSelectDialog"
+        title="{i18n>materialSelectDialogTitle}"
+        class="sapUiPopupWithPadding"
+        items="{
+            path: '/GetMalzemeSet',
+            sorter: { path: 'Matnr' }
+        }"
+        search="_onMaterialValueHelpSearch"
+        confirm="_onMaterialValueHelpClose"
+        cancel="_onMaterialValueHelpClose"
+        multiSelect="false">
+        <StandardListItem
+            icon="sap-icon://product"
+            type="Active"
+            title="{Matnr}"
+            description="{Maktx}" />
+    </SelectDialog>
+</core:FragmentDefinition>
