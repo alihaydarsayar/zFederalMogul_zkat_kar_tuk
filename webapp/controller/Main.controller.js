@@ -235,7 +235,16 @@ sap.ui.define([
                 // Örneğinizde $filter=IvMatnr eq '14197*' olduğu için wild card'ı değere ekliyoruz.
                 var oFilter = new Filter("IvMatnr", FilterOperator.Contains, sValue);
                 var oBinding = oEvent.getSource().getBinding("items");
-                oBinding.filter([oFilter]);
+                // oBinding.filter([oFilter]);
+
+                oBinding.attachEventOnce("dataReceived", function () {
+                    var filters = [
+                        new Filter("IvMatnr", FilterOperator.Contains, sValue)
+                    ];
+                    oBinding.filter(filters);
+                    sap.ui.core.BusyIndicator.hide();
+                });
+                oBinding.refresh(true);
             },
 
             _onMaterialValueHelpClose: function (oEvent) {

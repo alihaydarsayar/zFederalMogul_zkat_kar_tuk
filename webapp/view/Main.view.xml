@@ -156,16 +156,19 @@
                                 showSuggestion="true"
                                 showValueHelp="true"
                                 valueHelpRequest="onMaterialValueHelp"
-                                suggestionItems="{path: 'mainModel>/materials'}"
+                                suggestionItems="{
+                                     path: '/GetMalzemeSet',
+                                     sorter: { path: 'Matnr' }
+                                 }"
                                 change="_clearValidationState"
                                 valueState="{mainView>/validation/malzemeState}"
                                 valueStateText="{mainView>/validation/malzemeStateText}"
                             >
                                 <suggestionItems>
                                     <core:ListItem
-                                        key="{mainModel>Matnr}"
-                                        text="{mainModel>Matnr}"
-                                        additionalText="{mainModel>Maktx}"
+                                        key="{Matnr}"
+                                        text="{Matnr}"
+                                        additionalText="{Maktx}"
                                     />
                                 </suggestionItems>
                             </Input>
