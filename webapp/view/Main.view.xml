@@ -209,11 +209,11 @@
                                     />
                                 </items>
                             </List> -->
-                            <Select
+                            <ComboBox
                                 width="100%"
                                 id="select2"
                                 showSecondaryValues="true"
-                                editable="false"
+                                editable="true"
                                 items="{path: 'mainModel>/bands', sorter: { path: 'Bant' }}"
                                 change="onBantSelectionChange"
                                 selectedKey="{mainView>/formData/IvBant}"
@@ -222,7 +222,7 @@
                                     text="{mainModel>Bant}"
                                     additionalText="{mainModel>Ktext}"
                                 />
-                            </Select>
+                            </ComboBox>
                             <Label text="" />
                             <Text
                                 text="{mainView>/validation/bantStateText}"

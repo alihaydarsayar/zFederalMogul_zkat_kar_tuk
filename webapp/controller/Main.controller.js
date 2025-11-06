@@ -12,9 +12,10 @@ sap.ui.define([
     "sap/m/MessageToast",
     "sap/ui/core/Fragment",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
+    "sap/ui/model/FilterOperator",
+    "sap/ui/core/format/DateFormat"
 ],
-    function (Controller, JSONModel, MessageBox, MessageToast, Fragment, Filter, FilterOperator) {
+    function (Controller, JSONModel, MessageBox, MessageToast, Fragment, Filter, FilterOperator, DateFormat) {
         "use strict";
 
         return Controller.extend("com.golive.federalmogul.zkatkartuk.controller.Main", {
@@ -31,6 +32,9 @@ sap.ui.define([
                 this.oMainModel.setSizeLimit(999999);
                 this.getView().setModel(this.oMainModel, "mainModel");
 
+                var oDateFormat = DateFormat.getDateTimeInstance({
+                    pattern: "yyyy-MM-dd'T'HH:mm:ss"
+                });
                 // View-specific model
                 var oMainViewModel = new JSONModel({
                     busy: false,
@@ -42,7 +46,8 @@ sap.ui.define([
                     },
                     formData: {
                         IvAdsoyad: "",
-                        IvTarih: new Date(),
+                        // IvTarih: new Date(),
+                        IvTarih: oDateFormat.format(new Date()),
                         IvMalzeme: "",
                         IvMiktar: null,
                         IvBant: ""
