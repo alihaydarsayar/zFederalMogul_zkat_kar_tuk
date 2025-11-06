@@ -252,6 +252,7 @@
                                 editable="true"
                                 items="{path: 'mainModel>/bands', sorter: { path: 'Bant' }}"
                                 change="_clearValidationState"
+                                selectionChange="_clearValidationState"
                                 selectedKey="{mainView>/formData/IvBant}"
                                 value="{mainView>/formData/IvBant}"
                                 valueState="{mainView>/validation/bantState}"
