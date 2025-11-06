@@ -260,7 +260,7 @@ sap.ui.define([
 
             onMaterialSuggest: function (oEvent) {
                 // var sValue = oEvent.getParameter("value")
-                var sValue =  oEvent.getParameter("suggestValue");
+                var sValue = oEvent.getParameter("suggestValue");
 
                 if (sValue.length < 3) {
                     return;
@@ -334,15 +334,16 @@ sap.ui.define([
                 var oFormData = oMainView.getProperty("/formData");
 
                 // Tarih objesini OData'nın beklediği formata çevir (yyyy-MM-ddT00:00:00)
-                var oDate = oFormData.IvTarih;
-                var sISODate = oDate.toISOString().split('T')[0] + "T00:00:00";
+                // var oDate = oFormData.IvTarih;
+                // var sISODate = oDate.toISOString().split('T')[0] + "T00:00:00";
 
                 var oPayload = {
                     IvAdsoyad: oFormData.IvAdsoyad,
                     IvBant: oFormData.IvBant,
                     IvMalzeme: oFormData.IvMalzeme,
                     IvMiktar: oFormData.IvMiktar.toString(),
-                    IvTarih: sISODate
+                    // IvTarih: sISODate
+                    IvTarih: oFormData.IvTarih
                 };
 
                 oMainView.setProperty("/busy", true);
