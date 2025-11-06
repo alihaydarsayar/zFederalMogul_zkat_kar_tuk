@@ -251,7 +251,7 @@
                                 showSecondaryValues="true"
                                 editable="true"
                                 items="{path: 'mainModel>/bands', sorter: { path: 'Bant' }}"
-                                change="onBantSelectionChange"
+                                change="_clearValidationState"
                                 selectedKey="{mainView>/formData/IvBant}"
                                 value="{mainView>/formData/IvBant}"
                                 valueState="{mainView>/validation/bantState}"
