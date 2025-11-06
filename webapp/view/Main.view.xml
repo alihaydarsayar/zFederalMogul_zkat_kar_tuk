@@ -8,21 +8,9 @@
 >
     <Page
         id="page"
-        title="{= ${device>/system/phone} ? '' : ${i18n>title} }"
+        title="{i18n>title}"
         class="sapUiResponsiveContentPadding"
     >
-        <subHeader>
-            <OverflowToolbar
-                id="mobileToolbar"
-                visible="{= ${device>/system/phone}}"
-            >
-                <Title
-                    id="mobileTitle"
-                    text="{i18n>title}"
-                    wrapping="true"
-                />
-            </OverflowToolbar>
-        </subHeader>
         <content>
             <f:SimpleForm
                 id="loginForm"
@@ -97,7 +85,7 @@
             >
                 <headerToolbar>
                     <Toolbar>
-                        <Title text="{i18n>formTitle}" />
+                        <Title text="{i18n>formTitle}" wrapping="true" />
                         <ToolbarSpacer />
                         <!-- <Button
                             id="clearButton"
