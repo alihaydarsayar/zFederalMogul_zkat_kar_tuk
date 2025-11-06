@@ -61,6 +61,7 @@
                         visible="{mainView>/passwordVisible}"
                         submit="onLogin"
                         width="100%"
+                        maxLength="10"
                     />
 
                     <Label text="" />
@@ -163,6 +164,7 @@
                                 valueState="{mainView>/validation/malzemeState}"
                                 valueStateText="{mainView>/validation/malzemeStateText}"
                                 maxSuggestionWidth="auto"
+                                maxLength="40"
                             >
                                 <suggestionItems>
                                     <core:ListItem
