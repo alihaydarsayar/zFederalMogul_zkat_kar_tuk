@@ -158,7 +158,7 @@
                                 suggestionItems="{
                                      path: '/GetMalzemeSet',
                                      sorter: { path: 'Matnr' },
-                                     length: 9999
+                                     length: 1903
                                  }"
                                 change="_clearValidationState"
                                 valueState="{mainView>/validation/malzemeState}"
