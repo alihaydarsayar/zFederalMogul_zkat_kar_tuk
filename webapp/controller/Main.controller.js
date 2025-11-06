@@ -233,7 +233,7 @@ sap.ui.define([
                 // Backend yıldızlı aramayı destekliyorsa (IvMatnr eq '14197*')
                 // Operatör Contains değil, StartsWith veya EQ olmalı.
                 // Örneğinizde $filter=IvMatnr eq '14197*' olduğu için wild card'ı değere ekliyoruz.
-                var oFilter = new Filter("IvMatnr", FilterOperator.Contains, sValue);
+                // var oFilter = new Filter("IvMatnr", FilterOperator.Contains, sValue);
                 var oBinding = oEvent.getSource().getBinding("items");
                 // oBinding.filter([oFilter]);
 

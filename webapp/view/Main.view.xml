@@ -151,7 +151,7 @@
                                 id="materialInput"
                                 value="{mainView>/formData/IvMalzeme}"
                                 required="true"
-                                liveChange="onMaterialSuggest"
+                    
                                 submit="onMaterialSearch"
                                 showSuggestion="true"
                                 showValueHelp="true"
@@ -245,6 +245,7 @@
                     text="{i18n>clearButton}"
                     icon="sap-icon://clear-all"
                     press="onClear"
+                    visible="{mainView>/formVisible}"
                 />
                 <Button
                     id="saveButton"
@@ -252,6 +253,7 @@
                     type="Emphasized"
                     icon="sap-icon://save"
                     press="onSave"
+                    visible="{mainView>/formVisible}"
                 />
             </OverflowToolbar>
         </footer>
