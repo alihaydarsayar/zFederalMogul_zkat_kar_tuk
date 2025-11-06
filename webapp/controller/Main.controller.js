@@ -195,7 +195,25 @@ sap.ui.define([
                     },
                     error: (oError) => {
                         oMainView.setProperty("/busy", false);
-                        MessageBox.error("Giriş sırasında sunucu hatası oluştu.");
+                        sap.ui.core.BusyIndicator.hide(0);
+                        var msg = oError.message;
+                        var parsedResponse = null;
+                        try {
+                            parsedResponse = JSON.parse(oError.responseText);
+                        } catch (e) {
+
+                        }
+                        if ((oError.statusCode === "400" || oError.statusCode === 400) && parsedResponse) {
+                            msg = parsedResponse.error.message.value;
+                        }
+                        MessageBox.error(
+                            msg, {
+                            icon: MessageBox.Icon.ERROR,
+                            title: oError.statusCode + ":" + oError.statusText,
+                            actions: [MessageBox.Action.OK],
+                            emphasizedAction: MessageBox.Action.YES,
+                            onClose: function (oAction) { }
+                        });
                     }
                 });
             },
@@ -301,7 +319,27 @@ sap.ui.define([
                     },
                     error: (oError) => {
                         oMainView.setProperty("/busy", false);
-                        MessageBox.error("Malzeme aranırken hata oluştu.");
+                        MessageToast.show("Malzeme aranırken hata oluştu.");
+                        sap.ui.core.BusyIndicator.hide(0);
+                        oMainView.setProperty("/busy", false);
+                        var msg = oError.message;
+                        var parsedResponse = null;
+                        try {
+                            parsedResponse = JSON.parse(oError.responseText);
+                        } catch (e) {
+
+                        }
+                        if ((oError.statusCode === "400" || oError.statusCode === 400) && parsedResponse) {
+                            msg = parsedResponse.error.message.value;
+                        }
+                        MessageBox.error(
+                            msg, {
+                            icon: MessageBox.Icon.ERROR,
+                            title: oError.statusCode + ":" + oError.statusText,
+                            actions: [MessageBox.Action.OK],
+                            emphasizedAction: MessageBox.Action.YES,
+                            onClose: function (oAction) { }
+                        });
                     }
                 });
             },
@@ -359,13 +397,26 @@ sap.ui.define([
                         }
                     },
                     error: (oError) => {
+                        sap.ui.core.BusyIndicator.hide(0);
                         oMainView.setProperty("/busy", false);
+                        var msg = oError.message;
+                        var parsedResponse = null;
                         try {
-                            var oErrorResponse = JSON.parse(oError.responseText);
-                            MessageBox.error(oErrorResponse.error.message.value || "Bilinmeyen sunucu hatası.");
+                            parsedResponse = JSON.parse(oError.responseText);
                         } catch (e) {
-                            MessageBox.error(oI18n.getText("saveErrorGeneral"));
+
                         }
+                        if ((oError.statusCode === "400" || oError.statusCode === 400) && parsedResponse) {
+                            msg = parsedResponse.error.message.value;
+                        }
+                        MessageBox.error(
+                            msg, {
+                            icon: MessageBox.Icon.ERROR,
+                            title: oError.statusCode + ":" + oError.statusText,
+                            actions: [MessageBox.Action.OK],
+                            emphasizedAction: MessageBox.Action.YES,
+                            onClose: function (oAction) { }
+                        });
                     }
                 });
             },
