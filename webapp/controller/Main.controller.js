@@ -378,11 +378,13 @@ sap.ui.define([
             onClear: function () {
                 var oMainView = this.getView().getModel("mainView");
                 var sAdSoyad = oMainView.getProperty("/formData/IvAdsoyad"); // Kullanıcı adını koru
-
+                var oDateFormat = DateFormat.getDateTimeInstance({
+                    pattern: "yyyy-MM-dd'T'HH:mm:ss"
+                });
                 // Form verilerini sıfırla
                 oMainView.setProperty("/formData", {
                     IvAdsoyad: sAdSoyad,
-                    IvTarih: new Date(),
+                    IvTarih: oDateFormat.format(new Date()),
                     IvMalzeme: "",
                     IvMiktar: null,
                     IvBant: ""
@@ -392,7 +394,7 @@ sap.ui.define([
                 this._resetValidationStates();
 
                 // Bant Listesi seçimini kaldır
-                this.byId("bandList").removeSelections(true);
+                // this.byId("bandList").removeSelections(true);
             },
 
             /**
