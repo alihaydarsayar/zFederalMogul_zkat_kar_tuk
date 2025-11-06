@@ -254,6 +254,8 @@
                                 change="onBantSelectionChange"
                                 selectedKey="{mainView>/formData/IvBant}"
                                 value="{mainView>/formData/IvBant}"
+                                valueState="{mainView>/validation/bantState}"
+                                valueStateText="{mainView>/validation/bantStateText}"
                             >
                                 <core:ListItem
                                     key="{mainModel>Bant}"
