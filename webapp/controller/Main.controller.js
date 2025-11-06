@@ -7,6 +7,8 @@ function (Controller) {
     return Controller.extend("com.golive.federalmogul.zkatkartuk.controller.Main", {
         onInit: function () {
 
+
+            
         }
     });
 });
