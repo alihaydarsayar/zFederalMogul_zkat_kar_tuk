@@ -560,8 +560,11 @@ sap.ui.define([
             onMiktarLiveChange: function (oEvent) {
                 var oInput = oEvent.getSource();
                 var sValue = oInput.getValue();
-                var sCleanValue = sValue.replace(/[^0-9,]/g, ''); // Sadece rakamlar ve virgül
-                oInput.setValue(sCleanValue);
+                var sCleanValue = sValue.replace(/[^0-9.,]/g, ""); // Sadece rakamlar ve virgül
+
+                if (sValue !== sCleanValue) {
+                    oInput.setValue(sCleanValue);
+                }
             }
         });
     });
