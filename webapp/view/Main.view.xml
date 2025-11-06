@@ -215,7 +215,7 @@
                             /> -->
                             <Input
                                 id="quantityInput"
-                                value="{mainView>/formData/IvMiktar}"
+                                value="{path:'mainView>/formData/IvMiktar', type: 'com.golive.federalmogul.zkatkartuk.model.types.Quantity'}"
                                 type="Number"
                                 required="true"
                                 change="_clearValidationState"

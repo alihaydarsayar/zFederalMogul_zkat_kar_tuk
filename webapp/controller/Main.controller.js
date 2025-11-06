@@ -13,9 +13,10 @@ sap.ui.define([
     "sap/ui/core/Fragment",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
-    "sap/ui/core/format/DateFormat"
+    "sap/ui/core/format/DateFormat",
+    "com/golive/federalmogul/zkatkartuk/model/types/Quantity"
 ],
-    function (Controller, JSONModel, MessageBox, MessageToast, Fragment, Filter, FilterOperator, DateFormat) {
+    function (Controller, JSONModel, MessageBox, MessageToast, Fragment, Filter, FilterOperator, DateFormat, Quantity) {
         "use strict";
 
         return Controller.extend("com.golive.federalmogul.zkatkartuk.controller.Main", {
