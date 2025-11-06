@@ -9,7 +9,7 @@
 |**Service Type**<br>SAP System (ABAP On-Premise)|
 |**Service URL**<br>https://s4dev.federalmogul.com.tr:44300/sap/opu/odata/sap/ZKAT_KAR_TUK_SRV|
 |**Module Name**<br>zkat_kar_tuk|
-|**Application Title**<br>Katar Kartuş Tüketim|
+|**Application Title**<br>Kater Kartuş Tüketim|
 |**Namespace**<br>com.golive.federalmogul|
 |**UI5 Theme**<br>sap_fiori_3|
 |**UI5 Version**<br>1.96.1|

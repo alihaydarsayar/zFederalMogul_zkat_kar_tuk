@@ -6,7 +6,7 @@
     "metadataFilename": "",
     "serviceUrl": "https://s4dev.federalmogul.com.tr:44300/sap/opu/odata/sap/ZKAT_KAR_TUK_SRV",
     "appName": "zkat_kar_tuk",
-    "appTitle": "Katar Kartuş Tüketim",
+    "appTitle": "Kater Kartuş Tüketim",
     "appDescription": "An SAP Fiori application.",
     "appNamespace": "com.golive.federalmogul",
     "ui5Theme": "sap_fiori_3",

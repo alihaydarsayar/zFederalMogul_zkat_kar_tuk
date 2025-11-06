@@ -1,0 +1,12 @@
+{
+    "base": "./webapp",
+    "conn_usestrictssl": false,
+    "conn_server": "",
+    "conn_client": "021",
+    "conn_user": "XALIH",
+    "conn_password": "Golive1903*",
+    "abap_transport": "FMTK9A0BCG",
+    "abap_package": "ZFIORI",
+    "abap_bsp": "ZKAT_KAR_TUK",
+    "abap_bsp_text": "Kater Kartuş Tüketim UI5 Uygulaması"
+}

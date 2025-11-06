@@ -1,6 +1,6 @@
 /**
  * @file Main.controller.js
- * @description Katar Kartuş Tüketim ana controller dosyası
+ * @description Kater Kartuş Tüketim ana controller dosyası
  * @version 1.1.0
  * @author Ali Haydar Sayar
  * @date 2025-11-06
