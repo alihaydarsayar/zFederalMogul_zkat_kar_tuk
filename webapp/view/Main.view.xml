@@ -147,7 +147,7 @@
                                 text="{i18n>materialLabel}"
                                 required="true"
                             />
-                            <Input
+                            <!-- <Input
                                 id="materialInput"
                                 value="{mainView>/formData/IvMalzeme}"
                                 required="true"
@@ -157,18 +157,32 @@
                                 suggestionItems="{
                                      path: '/GetMalzemeSet',
                                      sorter: { path: 'Matnr' },
-                                     length: 190000
+                                     length: 1903
                                  }"
                                 change="_clearValidationState"
                                 valueState="{mainView>/validation/malzemeState}"
                                 valueStateText="{mainView>/validation/malzemeStateText}"
                                 maxSuggestionWidth="auto"
+                            > -->
+                                 <Input
+                                id="materialInput"
+                                value="{mainView>/formData/IvMalzeme}"
+                                required="true"
+                                suggest="onMaterialSuggest"
+                                submit="onMaterialSearch"
+                                showSuggestion="true"
+                                showValueHelp="true"
+                                valueHelpRequest="onMaterialValueHelp"
+                                suggestionItems="{mainModel>/materials}"
+                                change="_clearValidationState"
+                                valueState="{mainView>/validation/malzemeState}"
+                                valueStateText="{mainView>/validation/malzemeStateText}"
                             >
                                 <suggestionItems>
                                     <core:ListItem
-                                        key="{Matnr}"
-                                        text="{Matnr}"
-                                        additionalText="{Maktx}"
+                                        key="{mainModel>Matnr}"
+                                        text="{mainModel>Matnr}"
+                                        additionalText="{mainModel>Maktx}"
                                     />
                                 </suggestionItems>
                             </Input>

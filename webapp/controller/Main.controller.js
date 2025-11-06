@@ -259,14 +259,15 @@ sap.ui.define([
             },
 
             onMaterialSuggest: function (oEvent) {
-                var sValue = oEvent.getParameter("suggestValue");
+                // var sValue = oEvent.getParameter("value")
+                var sValue =  oEvent.getParameter("suggestValue");
 
                 if (sValue.length < 3) {
                     return;
                 }
 
                 // Yıldızlı arama için '*' ekliyoruz
-                var sFilterValue = sValue + '*';
+                var sFilterValue = sValue;
                 var oFilter = new Filter("IvMatnr", FilterOperator.EQ, sFilterValue);
 
                 this.oDataModel.read("/GetMalzemeSet", {
