@@ -151,18 +151,18 @@
                                 id="materialInput"
                                 value="{mainView>/formData/IvMalzeme}"
                                 required="true"
-                    
-                           
                                 showSuggestion="true"
                                 showValueHelp="true"
                                 valueHelpRequest="onMaterialValueHelp"
                                 suggestionItems="{
                                      path: '/GetMalzemeSet',
-                                     sorter: { path: 'Matnr' }
+                                     sorter: { path: 'Matnr' },
+                                     length: 190000
                                  }"
                                 change="_clearValidationState"
                                 valueState="{mainView>/validation/malzemeState}"
                                 valueStateText="{mainView>/validation/malzemeStateText}"
+                                maxSuggestionWidth="auto"
                             >
                                 <suggestionItems>
                                     <core:ListItem
