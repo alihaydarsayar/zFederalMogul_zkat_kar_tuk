@@ -147,7 +147,7 @@
                                 text="{i18n>materialLabel}"
                                 required="true"
                             />
-                            <!-- <Input
+                            <Input
                                 id="materialInput"
                                 value="{mainView>/formData/IvMalzeme}"
                                 required="true"
@@ -157,14 +157,22 @@
                                 suggestionItems="{
                                      path: '/GetMalzemeSet',
                                      sorter: { path: 'Matnr' },
-                                     length: 1903
+                                     length: 9999
                                  }"
                                 change="_clearValidationState"
                                 valueState="{mainView>/validation/malzemeState}"
                                 valueStateText="{mainView>/validation/malzemeStateText}"
                                 maxSuggestionWidth="auto"
-                            > -->
-                                 <Input
+                            >
+                                <suggestionItems>
+                                    <core:ListItem
+                                        key="{mainModel>Matnr}"
+                                        text="{mainModel>Matnr}"
+                                        additionalText="{mainModel>Maktx}"
+                                    />
+                                </suggestionItems>
+                            </Input>
+                            <!-- <Input
                                 id="materialInput"
                                 value="{mainView>/formData/IvMalzeme}"
                                 required="true"
@@ -173,7 +181,7 @@
                                 showSuggestion="true"
                                 showValueHelp="true"
                                 valueHelpRequest="onMaterialValueHelp"
-                                suggestionItems="{mainModel>/materials}"
+                                suggestionItems="{path: 'mainModel>/materials'}"
                                 change="_clearValidationState"
                                 valueState="{mainView>/validation/malzemeState}"
                                 valueStateText="{mainView>/validation/malzemeStateText}"
@@ -185,7 +193,7 @@
                                         additionalText="{mainModel>Maktx}"
                                     />
                                 </suggestionItems>
-                            </Input>
+                            </Input> -->
 
                             <Label
                                 text="{i18n>quantityLabel}"
