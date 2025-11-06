@@ -251,6 +251,7 @@
                                 items="{path: 'mainModel>/bands', sorter: { path: 'Bant' }}"
                                 change="onBantSelectionChange"
                                 selectedKey="{mainView>/formData/IvBant}"
+                                value="{mainView>/formData/IvBant}"
                             >
                                 <core:ListItem
                                     key="{mainModel>Bant}"
