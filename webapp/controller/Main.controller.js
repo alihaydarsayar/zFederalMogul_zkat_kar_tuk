@@ -549,6 +549,7 @@ sap.ui.define([
                     if (sId.includes("datePicker")) sFieldName = "tarihState";
                     else if (sId.includes("materialInput")) sFieldName = "malzemeState";
                     else if (sId.includes("quantityInput")) sFieldName = "miktarState";
+                    else if (sId.includes("select2")) sFieldName = "bantState";
                 } else if (sField) {
                     // Manuel tetiklendi (örn: bant seçimi, malzeme yardımı)
                     sFieldName = sField;
