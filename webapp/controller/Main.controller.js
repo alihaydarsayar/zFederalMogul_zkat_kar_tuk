@@ -144,11 +144,11 @@ sap.ui.define([
              */
             onUserChange: function (oEvent) {
                 var oMainView = this.getView().getModel("mainView");
-                var oSelectedItem = oEvent.getParameter("selectedItem");
+                var oSelectedItem = oEvent.getSource("selectedItem");
 
                 if (oSelectedItem) {
                     oMainView.setProperty("/passwordVisible", true);
-                    oMainView.setProperty("/login/username", oSelectedItem.getKey());
+                    oMainView.setProperty("/login/username", oSelectedItem.getSelectedKey());
                 } else {
                     oMainView.setProperty("/passwordVisible", false);
                     oMainView.setProperty("/login/username", "");
@@ -296,8 +296,8 @@ sap.ui.define([
             onBantSelectionChange: function (oEvent) {
                 var oSelectedItem = oEvent.getParameter("listItem");
                 if (oSelectedItem) {
-                    var sBantKey = oSelectedItem.getBindingContext("mainModel").getProperty("Bant");
-                    this.getView().getModel("mainView").setProperty("/formData/IvBant", sBantKey);
+                    // var sBantKey = oSelectedItem.getBindingContext("mainModel").getProperty("Bant");
+                    // this.getView().getModel("mainView").setProperty("/formData/IvBant", sBantKey);
                     this._clearValidationState(null, "bantState");
                 }
             },

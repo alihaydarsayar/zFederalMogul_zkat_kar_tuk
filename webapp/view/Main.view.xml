@@ -1,97 +1,154 @@
-<mvc:View controllerName="com.golive.federalmogul.zkatkartuk.controller.Main"
+<mvc:View
+    controllerName="com.golive.federalmogul.zkatkartuk.controller.Main"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:f="sap.ui.layout.form"
     xmlns:core="sap.ui.core"
-    displayBlock="true">
-    <Page id="page" title="{i18n>title}" class="sapUiResponsiveContentPadding">
+    displayBlock="true"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+        class="sapUiResponsiveContentPadding"
+    >
         <content>
-            <f:SimpleForm id="loginForm"
+            <f:SimpleForm
+                id="loginForm"
                 editable="true"
                 layout="ResponsiveGridLayout"
                 title="{i18n>loginTitle}"
-                labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12"
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="12"
+                labelSpanS="12"
                 adjustLabelSpan="false"
-                emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
-                columnsXL="2" columnsL="2" columnsM="1"
+                emptySpanXL="0"
+                emptySpanL="0"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="2"
+                columnsL="2"
+                columnsM="1"
                 singleContainerFullSize="false"
-                visible="{= !${mainView>/formVisible}}">
+                visible="{= !${mainView>/formVisible}}"
+            >
                 <f:content>
-                    <Label text="{i18n>userLabel}" required="true" />
-                    <ComboBox id="userSelect"
+                    <Label
+                        text="{i18n>userLabel}"
+                        required="true"
+                    />
+                    <ComboBox
+                        id="userSelect"
                         items="{path: 'mainModel>/users', sorter: { path: 'Adsoyad' }}"
                         selectedKey="{mainView>/login/username}"
                         change="onUserChange"
-                        width="100%">
-                        <core:Item key="{mainModel>Adsoyad}" text="{mainModel>Adsoyad}" />
+                        width="100%"
+                    >
+                        <core:Item
+                            key="{mainModel>Adsoyad}"
+                            text="{mainModel>Adsoyad}"
+                        />
                     </ComboBox>
 
-                    <Label text="{i18n>passwordLabel}" required="true" />
-                    <Input id="passwordInput"
+                    <Label
+                        text="{i18n>passwordLabel}"
+                        required="true"
+                    />
+                    <Input
+                        id="passwordInput"
                         type="Password"
                         value="{mainView>/login/password}"
                         visible="{mainView>/passwordVisible}"
                         submit="onLogin"
-                        width="100%" />
+                        width="100%"
+                    />
 
                     <Label text="" />
-                    <Button id="loginButton"
+                    <Button
+                        id="loginButton"
                         text="{i18n>loginButton}"
                         type="Emphasized"
                         press="onLogin"
                         visible="{mainView>/passwordVisible}"
-                        width="100%" />
+                        width="100%"
+                    />
                 </f:content>
             </f:SimpleForm>
 
-            <Panel id="mainFormPanel"
+            <Panel
+                id="mainFormPanel"
                 expandable="false"
                 expanded="true"
                 class="sapUiResponsiveContentPadding"
-                visible="{mainView>/formVisible}">
+                visible="{mainView>/formVisible}"
+            >
                 <headerToolbar>
                     <Toolbar>
                         <Title text="{i18n>formTitle}" />
                         <ToolbarSpacer />
-                        <Button id="clearButton"
+                        <!-- <Button
+                            id="clearButton"
                             text="{i18n>clearButton}"
                             icon="sap-icon://clear-all"
-                            press="onClear" />
-                        <Button id="saveButton"
+                            press="onClear"
+                        />
+                        <Button
+                            id="saveButton"
                             text="{i18n>saveButton}"
                             type="Emphasized"
                             icon="sap-icon://save"
-                            press="onSave" />
+                            press="onSave"
+                        /> -->
                     </Toolbar>
                 </headerToolbar>
                 <content>
-                    <f:SimpleForm id="mainForm"
+                    <f:SimpleForm
+                        id="mainForm"
                         editable="true"
                         layout="ResponsiveGridLayout"
-                        labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12"
+                        labelSpanXL="4"
+                        labelSpanL="4"
+                        labelSpanM="12"
+                        labelSpanS="12"
                         adjustLabelSpan="false"
-                        emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
-                        columnsXL="2" columnsL="2" columnsM="1"
-                        singleContainerFullSize="false">
+                        emptySpanXL="0"
+                        emptySpanL="0"
+                        emptySpanM="0"
+                        emptySpanS="0"
+                        columnsXL="2"
+                        columnsL="2"
+                        columnsM="1"
+                        singleContainerFullSize="false"
+                    >
                         <f:content>
-                            <core:Title text="{i18n>formSection1}" />
                             <Label text="{i18n>userFullNameLabel}" />
-                            <Input id="nameInput"
+                            <Input
+                                id="nameInput"
                                 value="{mainView>/formData/IvAdsoyad}"
-                                editable="false" />
+                                editable="false"
+                            />
 
-                            <Label text="{i18n>dateLabel}" required="true" />
-                            <DatePicker id="datePicker"
+                            <Label
+                                text="{i18n>dateLabel}"
+                                required="true"
+                            />
+                            <DatePicker
+                                id="datePicker"
                                 value="{mainView>/formData/IvTarih}"
                                 displayFormat="dd.MM.yyyy"
                                 valueFormat="yyyy-MM-ddTHH:mm:ss"
                                 required="true"
                                 change="_clearValidationState"
                                 valueState="{mainView>/validation/tarihState}"
-                                valueStateText="{mainView>/validation/tarihStateText}" />
+                                valueStateText="{mainView>/validation/tarihStateText}"
+                            />
 
-                            <Label text="{i18n>materialLabel}" required="true" />
-                            <Input id="materialInput"
+                            <Label
+                                text="{i18n>materialLabel}"
+                                required="true"
+                            />
+                            <Input
+                                id="materialInput"
                                 value="{mainView>/formData/IvMalzeme}"
                                 required="true"
                                 liveChange="onMaterialSuggest"
@@ -102,14 +159,23 @@
                                 suggestionItems="{path: 'mainModel>/materials'}"
                                 change="_clearValidationState"
                                 valueState="{mainView>/validation/malzemeState}"
-                                valueStateText="{mainView>/validation/malzemeStateText}">
+                                valueStateText="{mainView>/validation/malzemeStateText}"
+                            >
                                 <suggestionItems>
-                                    <core:ListItem key="{mainModel>Matnr}" text="{mainModel>Matnr}" additionalText="{mainModel>Maktx}" />
+                                    <core:ListItem
+                                        key="{mainModel>Matnr}"
+                                        text="{mainModel>Matnr}"
+                                        additionalText="{mainModel>Maktx}"
+                                    />
                                 </suggestionItems>
                             </Input>
 
-                            <Label text="{i18n>quantityLabel}" required="true" />
-                            <Input id="quantityInput"
+                            <Label
+                                text="{i18n>quantityLabel}"
+                                required="true"
+                            />
+                            <Input
+                                id="quantityInput"
                                 value="{
                                     path: 'mainView>/formData/IvMiktar',
                                     type: 'sap.ui.model.type.Float',
@@ -120,27 +186,71 @@
                                 required="true"
                                 change="_clearValidationState"
                                 valueState="{mainView>/validation/miktarState}"
-                                valueStateText="{mainView>/validation/miktarStateText}" />
+                                valueStateText="{mainView>/validation/miktarStateText}"
+                            />
 
-                            <core:Title text="{i18n>formSection2}" />
-                            <Label text="{i18n>bandLabel}" required="true" />
-                            <List id="bandList"
+                            <Label
+                                text="{i18n>bandLabel}"
+                                required="true"
+                            />
+                            <!-- <List
+                                id="bandList"
                                 items="{path: 'mainModel>/bands', sorter: { path: 'Anasira' }}"
                                 mode="SingleSelectMaster"
                                 selectionChange="onBantSelectionChange"
                                 class="sapUiResponsiveContentPadding"
-                                width="100%">
+                                width="100%"
+                            >
                                 <items>
-                                    <StandardListItem title="{mainModel>Ktext}" key="{mainModel>Bant}" type="Active" />
+                                    <StandardListItem
+                                        title="{mainModel>Ktext}"
+                                        key="{mainModel>Bant}"
+                                        type="Active"
+                                    />
                                 </items>
-                            </List>
+                            </List> -->
+                            <Select
+                                width="100%"
+                                id="select2"
+                                showSecondaryValues="true"
+                                editable="false"
+                                items="{path: 'mainModel>/bands', sorter: { path: 'Bant' }}"
+                                change="onBantSelectionChange"
+                                selectedKey="{mainView>/formData/IvBant}"
+                            >
+                                <core:ListItem
+                                    text="{mainModel>Bant}"
+                                    additionalText="{mainModel>Ktext}"
+                                />
+                            </Select>
                             <Label text="" />
-                            <Text text="{mainView>/validation/bantStateText}" visible="{= ${mainView>/validation/bantState} === 'Error'}" class="sapUiNotification-Error"/>
-
+                            <Text
+                                text="{mainView>/validation/bantStateText}"
+                                visible="{= ${mainView>/validation/bantState} === 'Error'}"
+                                class="sapUiNotification-Error"
+                            />
                         </f:content>
                     </f:SimpleForm>
                 </content>
             </Panel>
         </content>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <Button
+                    id="clearButton"
+                    text="{i18n>clearButton}"
+                    icon="sap-icon://clear-all"
+                    press="onClear"
+                />
+                <Button
+                    id="saveButton"
+                    text="{i18n>saveButton}"
+                    type="Emphasized"
+                    icon="sap-icon://save"
+                    press="onSave"
+                />
+            </OverflowToolbar>
+        </footer>
     </Page>
 </mvc:View>
