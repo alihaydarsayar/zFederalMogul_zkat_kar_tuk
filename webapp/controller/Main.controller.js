@@ -477,9 +477,19 @@ sap.ui.define([
                     oValidationState.tarihStateText = sError;
                 }
 
-                // 2. Malzeme (Min 7 karakter)
-                if (!oData.IvMalzeme || oData.IvMalzeme.length < 7) {
-                    var sError = oI18n.getText("validationMalzeme");
+                // 2. Malzeme (Zorunlu, Min 7, Max 40)
+                if (!oData.IvMalzeme || oData.IvMalzeme.trim().length === 0) {
+                    var sError = oI18n.getText("validationMalzemeEmpty");
+                    aErrorMessages.push(sError);
+                    oValidationState.malzemeState = "Error";
+                    oValidationState.malzemeStateText = sError;
+                } else if (oData.IvMalzeme.length < 7) {
+                    var sError = oI18n.getText("validationMalzemeMin");
+                    aErrorMessages.push(sError);
+                    oValidationState.malzemeState = "Error";
+                    oValidationState.malzemeStateText = sError;
+                } else if (oData.IvMalzeme.length > 40) { // YENİ EKLENDİ (Max 40)
+                    var sError = oI18n.getText("validationMalzemeMax");
                     aErrorMessages.push(sError);
                     oValidationState.malzemeState = "Error";
                     oValidationState.malzemeStateText = sError;
@@ -503,10 +513,21 @@ sap.ui.define([
 
                 oMainView.setProperty("/validation", oValidationState);
 
+
                 if (aErrorMessages.length > 0) {
-                    MessageBox.warning(oI18n.getText("formValidationWarning") + "\n\n" + aErrorMessages.join("\n"));
+                    // Hataları listele
+                    var sErrorText = aErrorMessages.map(function (sMsg) {
+                        return "- " + sMsg;
+                    }).join("\n");
+                    MessageBox.warning(oI18n.getText("formValidationWarning") + "\n\n" + sErrorText);
                     return false;
                 }
+
+                // if (aErrorMessages.length > 0) {
+                //     MessageBox.warning(oI18n.getText("formValidationWarning") + "\n\n" + aErrorMessages.join("\n"));
+                //     return false;
+                // }
+
 
                 return true;
             },
